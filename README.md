@@ -1,10 +1,10 @@
-# DC Comics Monorepo
+# DC Comics Monorepo 🦸‍♂️📚
 
 ## Introducción
 
 Este proyecto es una aplicación web básica que permite la visualización y búsqueda de personajes de DC Comics. La aplicación utiliza HTML, PHP, CSS y MySQL, y está diseñada para demostrar varias técnicas como el uso de cookies, procedimientos almacenados, inner joins y JSON.
 
-## Estructura del Proyecto
+## Estructura del Proyecto 🗂️
 
 ```plaintext
 dc-comics-monorepo/
@@ -26,7 +26,7 @@ dc-comics-monorepo/
 └── README.md
 ```
 
-## Configuración del Entorno
+## Configuración del Entorno ⚙️
 1.  Clona el repositorio:
 
   ```bash
@@ -41,7 +41,7 @@ dc-comics-monorepo/
   + Crea una base de datos llamada **`dc_comics`**.
   + Importa el archivo **`stored_procedures.sql`** para crear las tablas y procedimientos almacenados necesarios
 
-## Instrucciones de Uso
+## Instrucciones de Uso 🚀
 
 1.  **Accede a la página principal:**
 
@@ -53,7 +53,7 @@ dc-comics-monorepo/
   +  En la página de personajes, ingresa el nombre de un personaje en el campo de búsqueda y presiona "Search".
   +  Los detalles del personaje se mostrarán si se encuentra en la base de datos.
 
-## Contribuir
+## Contribuir 🤝
 Si deseas contribuir a este proyecto, sigue estos pasos:
 
 1.  **Fork el repositorio.**
@@ -62,7 +62,7 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 4.  **Haz push a la rama (git push origin feature/nueva-funcionalidad).**
 5.  **Crea un nuevo Pull Request.**
 
-## Documentación Técnica
+## Documentación Técnica 📖
 Para detalles técnicos sobre la implementación y estructura del proyecto, por favor consulta el MANUAL-TECNICO.md.
 
 ***
