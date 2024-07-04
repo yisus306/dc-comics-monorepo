@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Personajes - DC Comics</title>
-        <link rel="stylesheet" href="../public/css/styles.css">
+        <link rel="stylesheet" href="./../../public/css/styles.css">
     </head>
     <body>
         <h1>Personajes de DC Comics</h1>
