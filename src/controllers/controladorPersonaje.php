@@ -19,4 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nombre_personaje'])) {
     }
 }
 
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_personaje'])){
+    $idPersonaje = $_POST['id_personaje'];
+    $isDeleted = $modeloPersonaje->eliminarPersonajePorID($idPersonaje);
+    if($isDeleted){
+        $personajes = $modeloPersonaje->obtenerPersonajes();
+    }
+}
+
 ?>

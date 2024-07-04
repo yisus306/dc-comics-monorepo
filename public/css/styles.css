@@ -68,23 +68,55 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.search-button:hover {
   background-color: #0056b3; /* Color más oscuro para hover */
+}
+
+.no-data {
+  background-color: none;
 }
 
 /* Lista de personajes */
 ul {
   list-style-type: none;
   padding: 0;
-  max-width: 600px;
   margin: 0 auto;
 }
 
 li {
+  position: relative;
+  padding-right: 30px; /* Space for the delete icon */
+  transition: background-color 0.3s ease;
   background-color: #e0e0e0;
   margin: 10px 0;
   padding: 10px;
   border-radius: 4px;
+  width: 30.5rem;
+}
+
+li .delete-form {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+li:hover {
+  background-color: #f0f0f0;
+}
+
+li:hover .delete-form {
+  display: inline;
+}
+
+.delete-button {
+  background: none;
+  background-color: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 /* Mensaje de error */

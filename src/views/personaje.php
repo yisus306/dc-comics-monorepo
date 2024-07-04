@@ -10,7 +10,7 @@
         <h1>Personajes de DC Comics</h1>
         <form method="POST" action="">
             <input type="text" name="nombre_personaje" placeholder="Ingresa nombre de personaje">
-            <button type="submit">Buscar</button>
+            <button type="submit" class="search-button">Buscar</button>
         </form>
 
         <?php if (!empty($error)): ?>
@@ -29,11 +29,17 @@
         <?php if (!empty($personajes)): ?>
             <ul>
                 <?php foreach($personajes as $personaje): ?>
-                    <li><?= htmlspecialchars($personaje['nombre']) ?> (<?= htmlspecialchars($personaje['alias']) ?>)</li>
+                    <li>
+                        <?= htmlspecialchars($personaje['nombre']) ?> (<?= htmlspecialchars($personaje['alias']) ?>)
+                        <form class="delete-form" method="POST" action="">
+                            <input type="hidden" name="id_personaje" value="<?= htmlspecialchars($personaje['id']) ?>">
+                            <button type="submit" class="delete-button" name="eliminar_personaje" value="Eliminar">X</button>
+                        </form>
+                    </li>
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>
-            <p>No se encontraron personajes.</p>
+            <p class="no-data">No existen personajes en la base de datos.</p>
         <?php endif; ?>
     </body>
 </html>

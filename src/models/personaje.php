@@ -24,6 +24,32 @@ class Personaje {
         return $personajes;
     }
 
+    public function eliminarPersonajePorID($idPersonaje){
+    
+        $this->con->begin_transaction();
 
+        try {
+            // Actualiza la llave foránea en la tabla apariciones
+            $sqlUpdate = "UPDATE apariciones SET id_personaje = NULL WHERE id_personaje = ?";
+            $stmtUpdate = $this->con->prepare($sqlUpdate);
+            $stmtUpdate->bind_param("i", $idPersonaje);
+            $stmtUpdate->execute();
+
+            // Elimina el registro del personaje
+            $sqlDelete = "DELETE FROM personajes WHERE id = ?";
+            $stmtDelete = $this->con->prepare($sqlDelete);
+            $stmtDelete->bind_param("i", $idPersonaje);
+            $stmtDelete->execute();
+
+            // Si todo fue bien, confirma la transacción
+            $this->con->commit();
+
+            return true;
+        } catch (Exception $e) {
+            $this->con->rollback();
+
+            return false;
+        }
+    }
 }
 ?>
