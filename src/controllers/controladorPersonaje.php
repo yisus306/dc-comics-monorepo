@@ -11,6 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nombre_personaje'])) {
     // Almacenar en una cookie
     setcookie("ultima_busqueda", json_encode($personaje), time() + (86400 * 30), "/");
 } else {
-    $personajes = $characterModel->obtenerPersonajes();
+    $personajes = $modeloPersonaje->obtenerPersonajes();
 }
 ?>
