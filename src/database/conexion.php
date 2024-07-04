@@ -11,5 +11,4 @@ $con = new mysqli($nombreServidor, $nombreUsuario, $contrasena, $nombreBaseDatos
 if($con->connect_error){
     die("Conexcion fallida: ". $con->connect_error);
 }
-
 ?>

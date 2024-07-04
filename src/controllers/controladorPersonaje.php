@@ -4,13 +4,19 @@ include_once '../models/personaje.php';
 
 $modeloPersonaje = new Personaje($con);
 
+$personajes = $modeloPersonaje->obtenerPersonajes();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nombre_personaje'])) {
     $nombre = $_POST['nombre_personaje'];
-    $personaje = $modeloPersonaje->obtenerPersonalePorNombre($nombre);
+    $personaje = $modeloPersonaje->obtenerPersonajePorNombre($nombre);
 
-    // Almacenar en una cookie
-    setcookie("ultima_busqueda", json_encode($personaje), time() + (86400 * 30), "/");
-} else {
-    $personajes = $modeloPersonaje->obtenerPersonajes();
+    $error = ''; // Inicializar la variable de error
+    if ($personaje === null) {
+        $error = "El personaje '$nombre' no se encontró.";
+    } else {
+        // Almacenar en una cookie el último personaje encontrado
+        setcookie("ultima_busqueda", json_encode($personaje), time() + (86400 * 1), "/");
+    }
 }
+
 ?>

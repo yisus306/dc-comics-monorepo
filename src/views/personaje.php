@@ -1,6 +1,6 @@
 <?php include '../controllers/controladorPersonaje.php'; ?>
 <!DOCTYPE html>
-<hmtl lang="en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Personajes - DC Comics</title>
@@ -13,19 +13,27 @@
             <button type="submit">Buscar</button>
         </form>
 
+        <?php if (!empty($error)): ?>
+            <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+        <?php endif; ?>
+
         <?php if(isset($personaje)): ?>
             <h2>Detalles del personaje</h2>
             <p>Nombre: <?= htmlspecialchars($personaje['nombre']) ?></p>
             <p>Alias: <?= htmlspecialchars($personaje['alias']) ?></p>        
             <p>Especie: <?= htmlspecialchars($personaje['especie']) ?></p>
-            <!-- <p>Apareció: <?= htmlspecialchars($personaje['titulo_comic']) ?></p> --> 
+            <p>Apareció: <?= htmlspecialchars($personaje['titulo_comic']) ?></p>
         <?php endif; ?>
 
         <h2>Todos los Personajes</h2>
-        <ul>
-            <?php foreach($personajes as $personaje): ?>
-                <li><?= htmlspecialchars($personaje['nombre']) ?> (<?= htmlspecialchars($personaje['alias']) ?>)</li>
-            <?php endforeach; ?>
-        </ul>
+        <?php if (!empty($personajes)): ?>
+            <ul>
+                <?php foreach($personajes as $personaje): ?>
+                    <li><?= htmlspecialchars($personaje['nombre']) ?> (<?= htmlspecialchars($personaje['alias']) ?>)</li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>No se encontraron personajes.</p>
+        <?php endif; ?>
     </body>
 </html>

@@ -3,7 +3,7 @@
 class Personaje {
     private $con;
 
-    public function _construct($con){
+    public function __construct($con){
         $this->con = $con;
     }
 
@@ -19,7 +19,9 @@ class Personaje {
     public function obtenerPersonajes(){
         $sql = "SELECT * FROM personajes;";
         $result = $this->con->query($sql);
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $personajes = $result->fetch_all(MYSQLI_ASSOC);
+        $result->free();
+        return $personajes;
     }
 
 
