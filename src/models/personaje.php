@@ -25,31 +25,47 @@ class Personaje {
     }
 
     public function eliminarPersonajePorID($idPersonaje){
-    
-        $this->con->begin_transaction();
-
-        try {
-            // Actualiza la llave foránea en la tabla apariciones
-            $sqlUpdate = "UPDATE apariciones SET id_personaje = NULL WHERE id_personaje = ?";
-            $stmtUpdate = $this->con->prepare($sqlUpdate);
-            $stmtUpdate->bind_param("i", $idPersonaje);
-            $stmtUpdate->execute();
-
-            // Elimina el registro del personaje
-            $sqlDelete = "DELETE FROM personajes WHERE id = ?";
-            $stmtDelete = $this->con->prepare($sqlDelete);
-            $stmtDelete->bind_param("i", $idPersonaje);
-            $stmtDelete->execute();
-
-            // Si todo fue bien, confirma la transacción
-            $this->con->commit();
-
-            return true;
-        } catch (Exception $e) {
-            $this->con->rollback();
-
-            return false;
+        $sqlDelete = "DELETE FROM personajes WHERE id = ?";
+        
+        if ($stmt = $this->con->prepare($sqlDelete)) {
+            $stmt->bind_param("i", $idPersonaje);
+            
+            $stmt->execute();
+            
+            if ($stmt->affected_rows > 0) {
+                $resultado = true;
+            } else {
+                $resultado = false; 
+            }
+            
+            $stmt->close();
+        } else {
+            $resultado = false; 
         }
+        
+        return $resultado;
+    }
+
+    public function insertarPersonaje($idComic, $nombre, $alias, $especie){
+        $sqlDelete = "INSERT INTO personajes (id_aparicion, nombre, alias, especie) VALUES(?, ?, ?, ?);";
+        
+        if ($stmt = $this->con->prepare($sqlDelete)) {
+            $stmt->bind_param("isss", $idComic, $nombre, $alias, $especie);
+            
+            $stmt->execute();
+            
+            if ($stmt->affected_rows > 0) {
+                $resultado = true;
+            } else {
+                $resultado = false; 
+            }
+            
+            $stmt->close();
+        } else {
+            $resultado = false; 
+        }
+              
+        return $resultado;
     }
 }
 ?>
