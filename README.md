@@ -12,15 +12,16 @@ dc-comics-monorepo/
 │   ├── index.html
 │   ├── css/
 │   │   └── styles.css
-│   │  
 ├── src/
 │   ├── database/
 │   │   └── conexion.php
 │   ├── models/
+|   |   ├── comic.php
 │   │   └── personaje.php
 │   ├── views/
 │   │   └── personaje.php
 │   ├── controllers/
+|   |   ├── controladorComic.php
 │   │   └── controladorPersonaje.php
 ├── stored_procedures.sql
 └── README.md
@@ -49,9 +50,22 @@ dc-comics-monorepo/
   +  Haz clic en el enlace para ver la lista de personajes.
 
 2.  **Buscar un personaje:**
-
-  +  En la página de personajes, ingresa el nombre de un personaje en el campo de búsqueda y presiona "Search".
+  +  En la página de personajes, ingresa el nombre de un personaje en el campo de búsqueda y presiona "Buscar".
   +  Los detalles del personaje se mostrarán si se encuentra en la base de datos.
+
+3.  **Agregar nuevo personaje:**
+  + En la página de personajes, presiona el botón "Nuevo 🦸‍♂️", que se encuentra a la derecha del botón buscar.
+  + Ingresa los datos del nuevo personaje y presiona "Guardar".
+  + Una vez guardado correctamente, el personaje se mostrará automáticamente en la lista de personajes.
+
+4.  **Editar un personaje:**
+  + En la página de personajes se muestra una lista de los personajes. Pasa el puntero sobre el personaje que desees modificar y haz clic en el botón "✒️".
+  + Ingresa los nuevos datos del personaje y presiona "Guardar".
+  + Una vez guardado correctamente, el personaje se mostrará automáticamente en la lista de personajes
+
+5.  **Eliminar un personaje:**
+  + En la página de personajes se muestra una lista de los personajes. Pasa el puntero sobre el personaje que desees eliminar y haz clic en el botón "❌".
+  + El personaje se eliminará de la base de datos y se obtendrá la nueva lista de personajes.
 
 ## Contribuir 🤝
 Si deseas contribuir a este proyecto, sigue estos pasos:
@@ -63,6 +77,6 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 5.  **Crea un nuevo Pull Request.**
 
 ## Documentación Técnica 📖
-Para detalles técnicos sobre la implementación y estructura del proyecto, por favor consulta el MANUAL-TECNICO.md.
+Para detalles técnicos sobre la implementación y estructura del proyecto, por favor consulta el [MANUAL-TECNICO](docs/MANUAL-TECNICO.md).
 
 ***
