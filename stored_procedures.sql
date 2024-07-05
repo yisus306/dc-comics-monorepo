@@ -1,3 +1,8 @@
+CREATE TABLE apariciones (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            titulo_comic VARCHAR(100) NOT NULL,
+        );
+        
 CREATE TABLE personajes (
             id INT AUTO_INCREMENT PRIMARY KEY,
             nombre VARCHAR(100) NOT NULL,
@@ -7,11 +12,6 @@ CREATE TABLE personajes (
             CONSTRAINT fk_id_aparicion FOREIGN KEY (id_aparicion) REFERENCES apariciones(id)
         );
 
-CREATE TABLE apariciones (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            titulo_comic VARCHAR(100) NOT NULL,
-        );
-        
 DELIMITER //
 
 CREATE PROCEDURE obtenerPersonajePorNombre (IN nombre_personaje VARCHAR(100))
