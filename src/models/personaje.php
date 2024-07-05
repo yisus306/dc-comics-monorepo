@@ -16,6 +16,36 @@ class Personaje {
         return $result->fetch_assoc();
     }
 
+    public function obtenerPersonajePorId($idCharacter){
+        $sql = "SELECT personajes.id, personajes.id_aparicion, personajes.nombre, personajes.alias, personajes.especie, apariciones.titulo_comic FROM apariciones INNER JOIN personajes ON personajes.id_aparicion = apariciones.id WHERE personajes.id = $idCharacter;";
+        $result = $this->con->query($sql);
+        $personaje = $result->fetch_all(MYSQLI_ASSOC);
+        $result->free();
+        return $personaje;    
+    }
+
+    public function editarPersonaje($idCharacter, $idComic, $nombre, $alias, $especie){
+        $sql = "UPDATE personajes SET id_aparicion = ?, nombre = ?, alias = ?, especie = ? WHERE id = ?;";
+        
+        if ($stmt = $this->con->prepare($sql)) {
+            $stmt->bind_param("isssi", $idComic, $nombre, $alias, $especie, $idCharacter);
+            
+            $stmt->execute();
+            
+            if ($stmt->affected_rows > 0) {
+                $resultado = true;
+            } else {
+                $resultado = false; 
+            }
+            
+            $stmt->close();
+        } else {
+            $resultado = false; 
+        }
+              
+        return $resultado;
+    }
+
     public function obtenerPersonajes(){
         $sql = "SELECT * FROM personajes;";
         $result = $this->con->query($sql);

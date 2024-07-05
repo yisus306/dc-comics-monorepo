@@ -113,6 +113,14 @@ li .delete-form {
   transform: translateY(-50%);
 }
 
+li .edit-form { 
+  display: none;
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 li:hover {
   background-color: #f0f0f0;
 }
@@ -121,13 +129,32 @@ li:hover .delete-form {
   display: inline;
 }
 
-.delete-button {
+li:hover .edit-form {
+  display: inline;
+}
+
+.character-button {
   background: none;
   background-color: none;
   border: none;
   color: red;
   cursor: pointer;
   font-size: 16px;
+}
+
+.column-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+.form-column {
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
 }
 
 /* Mensaje de error */
