@@ -190,5 +190,9 @@ include '../controllers/controladorComic.php';
         <?php else: ?>
             <p class="no-data">No existen personajes en la base de datos.</p>
         <?php endif; ?>
+        <footer>
+            <hr>
+            <p>Creado con ❤️ por Martín Lujano</p>
+        </footer>
     </body>
 </html>
