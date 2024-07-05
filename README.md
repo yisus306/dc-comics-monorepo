@@ -77,6 +77,6 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 5.  **Crea un nuevo Pull Request.**
 
 ## Documentación Técnica 📖
-Para detalles técnicos sobre la implementación y estructura del proyecto, por favor consulta el MANUAL-TECNICO.md.
+Para detalles técnicos sobre la implementación y estructura del proyecto, por favor consulta el [MANUAL-TECNICO](docs/MANUAL-TECNICO.md).
 
 ***
