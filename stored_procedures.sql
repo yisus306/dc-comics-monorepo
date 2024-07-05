@@ -1,6 +1,6 @@
 CREATE TABLE apariciones (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            titulo_comic VARCHAR(100) NOT NULL,
+            titulo_comic VARCHAR(100) NOT NULL
         );
         
 CREATE TABLE personajes (

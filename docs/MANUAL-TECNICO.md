@@ -39,7 +39,7 @@ La base de datos consta de dos tablas: **`personajes`** y **`apariciones`**.
     ```sql
         CREATE TABLE apariciones (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            titulo_comic VARCHAR(100) NOT NULL,
+            titulo_comic VARCHAR(100) NOT NULL
         );
     ```
 3.  **Procedimiento almacenado `obtenerPersonajePorNombre:`**
